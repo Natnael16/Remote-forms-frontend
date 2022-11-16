@@ -1,6 +1,7 @@
 {
   "name": "my-r-app",
   "version": "0.1.0",
+  "homepage": "/lists",
   "proxy": "https://gentle-oasis-10043.herokuapp.com/",
   "private": true,
   "dependencies": {
