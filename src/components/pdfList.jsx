@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import fileDownload from "js-file-download"
+
 import ButtonPrimary from "./button";
 import SaveIcon from "@material-ui/icons/Save"
 import DeleteIcon from "@material-ui/icons/Delete"
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
 import { CardActionArea } from '@mui/material';
-import ButtonAppBar from "./navBar";
+
 
 export default class PdfList extends Component {
   state = {downloading : false}
@@ -17,12 +16,24 @@ export default class PdfList extends Component {
     this.setState({downloading :true})
     try{
       const pdf = await Axios({
-      url: "https://remote-forms-api.onrender.com/download-pdf",
+      url: "http://localhost:6001/download-pdf",
       method: "POST",
       data: form,
+      responseType: 'arraybuffer'
     }); 
-    }catch(e){
+    console.log(pdf.data)
+        const url = window.URL.createObjectURL(new Blob([pdf.data]
+          ,{type: "application/pdf"}))
+        var link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${form.name}${form.regNo}.pdf`);
+        document.body.appendChild(link);
+        link.click();
       
+
+
+    }catch(e){
+    
     }
     
     this.setState({downloading :false})

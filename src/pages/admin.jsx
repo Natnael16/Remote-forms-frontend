@@ -18,7 +18,7 @@ export default class Admin extends Component {
     fetchPdf =  async () => {
      
         const res = await Axios({
-            url :"https://remote-forms-api.onrender.com/fetch-pdf",
+            url :"http://localhost:6001/fetch-pdf",
             method : "POST",
             data : {name : this.state.query}
         })
@@ -37,7 +37,7 @@ export default class Admin extends Component {
     this.setState({deleting : true})
     try {
          const deleted = await Axios({
-        url : `https://remote-forms-api.onrender.com/delete-pdf/${regNo}`,
+        url : `http://localhost:6001/delete-pdf/${regNo}`,
         method : "DELETE"
     })
     
