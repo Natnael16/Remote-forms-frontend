@@ -17,7 +17,7 @@ export default class PdfList extends Component {
     this.setState({downloading :true})
     try{
       const pdf = await Axios({
-      url: "/download-pdf",
+      url: "https://remote-forms-api.onrender.com/download-pdf",
       method: "POST",
       data: form,
     }); 

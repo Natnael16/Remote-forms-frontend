@@ -64,7 +64,7 @@ export default class Home extends Component {
     formdata.append("phone" , this.state.phone)
     try {
         const response = await Axios({
-      url : "/create-pdf",
+      url : "https://remote-forms-api.onrender.com/create-pdf",
       method : "POST",
       data : formdata
     })
