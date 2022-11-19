@@ -23,7 +23,7 @@ export default class PdfList extends Component {
     }); 
     console.log(pdf.data)
         const url = window.URL.createObjectURL(new Blob([pdf.data]
-          ,{type: "application/pdf"}))
+          ,{type: "arraybuffer"}))
         var link = document.createElement('a');
         link.href = url;
         link.setAttribute('download', `${form.name}${form.regNo}.pdf`);
