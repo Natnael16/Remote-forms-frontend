@@ -19,7 +19,7 @@ export default class PdfList extends Component {
       url: "https://remote-forms-api.onrender.com/download-pdf",
       method: "POST",
       data: form,
-      responseType: 'arraybuffer'
+      responseType: 'application/pdf'
     }); 
     console.log(pdf.data)
         const url = window.URL.createObjectURL(new Blob([pdf.data]
