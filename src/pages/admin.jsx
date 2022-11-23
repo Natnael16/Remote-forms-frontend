@@ -17,12 +17,18 @@ export default class Admin extends Component {
   
     fetchPdf =  async () => {
      
-        const res = await Axios({
-            url :"https://remote-forms-api.onrender.com/fetch-pdf",
-            method : "POST",
-            data : {name : this.state.query}
-        })
-        this.setState({fetchedData: res.data})
+        try{
+            const res = await Axios({
+                      url :"https://remote-forms-api.onrender.com/fetch-pdf",
+                      method : "POST",
+                      data : {name : this.state.query}
+                  }) 
+            this.setState({fetchedData: res.data})
+        } catch(e){
+        
+        console.log(e.message)
+        }
+        
   }
   async componentDidMount() {
     await this.fetchPdf();
