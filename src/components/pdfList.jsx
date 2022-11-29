@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+// import Axios from "axios";
 
 import ButtonPrimary from "./button";
 import SaveIcon from "@material-ui/icons/Save";
@@ -8,35 +8,35 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
-import * as htmlToImage from "html-to-image";
+// import * as htmlToImage from "html-to-image";
 
 export default class PdfList extends Component {
   state = { downloading: false };
   downloadPdf = async (form) => {
     this.setState({ downloading: true });
     try {
-      const pdf = await Axios({
-        url: "https://remote-forms-api.onrender.com/download-pdf",
-        method: "POST",
-        data: form
-      });
+      // const pdf = await Axios({
+      //   url: "https://remote-forms-api.onrender.com/download-pdf",
+      //   method: "POST",
+      //   data: form
+      // });
 
-      var node = document.getElementById("rendered");
-      console.log(node);
+      // var node = document.getElementById("rendered");
+      // console.log(node);
 
-      htmlToImage
-        .toPng(node)
-        .then(function (dataUrl) {
-          var img = new Image();
-          img.src = dataUrl;
-          var link = document.createElement("a");
-          link.href = dataUrl;
-          link.setAttribute("download", `${form.name}${form.regNo}.png`);
-          link.click();
-        })
-        .catch(function (error) {
-          console.error("oops, something wents wrong!", error);
-        });
+      // htmlToImage
+      //   .toPng(node)
+      //   .then(function (dataUrl) {
+      //     var img = new Image();
+      //     img.src = dataUrl;
+      //     var link = document.createElement("a");
+      //     link.href = dataUrl;
+      //     link.setAttribute("download", `${form.name}${form.regNo}.png`);
+      //     link.click();
+      //   })
+      //   .catch(function (error) {
+      //     console.error("oops, something wents wrong!", error);
+      //   });
 
 
     } catch (e) {
@@ -57,7 +57,8 @@ export default class PdfList extends Component {
       border: "1px solid #eee",
       boxShadow: "0 0 10px rgba(0, 0, 0, .15)",
       fontSize: "29px",
-      lineHeight: "24px"
+      lineHeight: "24px",
+      zoom : "0.66"
     };
     const inputs = {
       fontSize: "27px",
@@ -91,7 +92,7 @@ export default class PdfList extends Component {
                 {" "}
                 {this.props.form.regNo}{" "}
               </span>
-              <span style={{ marginLeft: "5px" }}>
+              {/* <span style={{ marginLeft: "5px" }}>
                 <ButtonPrimary
                   disabled={this.state.downloading}
                   style={{ position: "relative", left: "0px" }}
@@ -103,7 +104,7 @@ export default class PdfList extends Component {
                   startIcon={<SaveIcon></SaveIcon>}
                   size="small"
                 ></ButtonPrimary>
-              </span>
+              </span> */}
               <span
                 style={{ marginLeft: "5px", position: "relative", left: "0px" }}
               >
@@ -178,7 +179,7 @@ export default class PdfList extends Component {
                   value={this.props.form.phone}
                 ></input>
               </span>
-              <span style={{ marginLeft: "5px", marginRight: "20px" }}>
+              {/* <span style={{ marginLeft: "5px", marginRight: "20px" }}>
                 <label for="id">ID </label>
                 <input
                   disabled
@@ -187,7 +188,7 @@ export default class PdfList extends Component {
                   style={inputs}
                   value={this.props.form.id}
                 ></input>
-              </span>
+              </span> */}
             </section>
             <section>
               <div style={imageContainer}>

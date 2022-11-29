@@ -9,7 +9,10 @@ export default class ButtonPrimary extends Component {
         variant= "contained"
         color={this.props.color}
         disabled={this.props.disabled}
+        style = {this.props.style}
+        hidden = {this.props.hidden}
         startIcon={this.props.startIcon}>
+        
        
         {this.props.text}
       </Button>

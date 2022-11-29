@@ -14,7 +14,7 @@ export default class Home extends Component {
     name: "",
     regNo: "",
     department: "",
-    id: "",
+    // id: "",
     phone:"",
     image:undefined,
     loading : false
@@ -31,9 +31,9 @@ export default class Home extends Component {
        else if (event.target.name === "department"){
         this.setState({ department: event.target.value}); 
        }
-       else if (event.target.name === "id"){
-        this.setState({ id: event.target.value}); 
-       }
+      //  else if (event.target.name === "id"){
+      //   this.setState({ id: event.target.value}); 
+      //  }
        else if (event.target.name === "phone"){
         this.setState({ phone: event.target.value}); 
        }
@@ -60,7 +60,7 @@ export default class Home extends Component {
     formdata.append("image" , this.state.image)
     formdata.append("regNo" , this.state.regNo)
     formdata.append("department" , this.state.department)
-    formdata.append("id" , this.state.id)
+    // formdata.append("id" , this.state.id)
     formdata.append("phone" , this.state.phone)
     try {
         const response = await Axios({
@@ -126,7 +126,7 @@ export default class Home extends Component {
             onChange={this.handleChange}
             ></TextField>
             <br />
-            <TextField
+            {/* <TextField
             required
             variant="filled"
             size="large"
@@ -136,8 +136,7 @@ export default class Home extends Component {
             value={this.state.id}
             name="id"
             onChange={this.handleChange}
-            ></TextField>
-            <br />
+            ></TextField> */}
             <TextField
             required
             variant="filled"
